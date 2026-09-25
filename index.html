@@ -209,6 +209,16 @@ section{padding-block:6rem}
 .acao small{display:block;color:var(--cinza);font-size:.93rem;margin-top:.3rem}
 .cliente-nota{margin-top:1.6rem;color:var(--cinza);font-size:.93rem}
 
+/* ---------- Portais municipais ---------- */
+.municipios{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.municipio{position:relative;display:flex;flex-direction:column;gap:.2rem;padding:1.5rem 1.5rem 1.3rem;border:1px solid var(--linha);border-radius:var(--radius-sm);text-decoration:none;background:var(--papel);transition:border-color .2s,transform .2s}
+.municipio:hover{border-color:var(--petroleo);transform:translateY(-2px)}
+.municipio strong{font-family:var(--display);font-size:1.45rem;line-height:1.15}
+.municipio small{color:var(--cinza);font-size:.93rem}
+.municipio-uf{position:absolute;top:1.1rem;right:1.2rem;font-size:.78rem;font-weight:700;color:var(--sol-escuro);background:#F5ECD6;border-radius:999px;padding:.15rem .6rem}
+.municipio-acao{margin-top:1rem;display:inline-flex;align-items:center;gap:.35rem;font-weight:600;color:var(--petroleo-2)}
+.municipio-acao svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
 /* ---------- Certidões ---------- */
 .cert-tabela{width:100%;border-collapse:collapse;min-width:640px}
 .cert-scroll{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--radius-lg);background:var(--papel)}
@@ -298,7 +308,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .duvidas-sec .wrap{grid-template-columns:1fr;gap:2rem}
   .procuracao{grid-template-columns:1fr}
   .passos{grid-template-columns:repeat(2,1fr)}
-  .acessos,.cliente-grade{grid-template-columns:repeat(2,1fr)}
+  .acessos,.cliente-grade,.municipios{grid-template-columns:repeat(2,1fr)}
   footer .wrap{grid-template-columns:1fr 1fr}
   footer .wrap > div:first-child{grid-column:1/-1}
 }
@@ -336,7 +346,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .selo-nuvem{right:-4px;font-size:.72rem}
   .laptop-tela .lanc .prazo{display:none}
   .modo-corpo{padding:1.4rem}
-  .passos,.acessos,.cliente-grade{grid-template-columns:1fr}
+  .passos,.acessos,.cliente-grade,.municipios{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
   .form{padding:1.5rem}
   .logo{height:40px}
@@ -345,6 +355,19 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
+
+/* ---------- Cor animada ---------- */
+@property --petroleo{syntax:"<color>";inherits:true;initial-value:#2B3F5C}
+@property --petroleo-2{syntax:"<color>";inherits:true;initial-value:#3E5677}
+@keyframes cor-viva{
+  0%  {--petroleo:#2B3F5C;--petroleo-2:#3E5677}
+  25% {--petroleo:#0B4A78;--petroleo-2:#1F6399}
+  50% {--petroleo:#1C3F66;--petroleo-2:#2F5E8C}
+  75% {--petroleo:#0E5566;--petroleo-2:#23707F}
+  100%{--petroleo:#2B3F5C;--petroleo-2:#3E5677}
+}
+:root{animation:cor-viva 24s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){:root{animation:none}}
 </style>
 </head>
 <body>
@@ -357,7 +380,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#cliente">Área do cliente</a></li>
       <li><a href="#certidoes">Certidões</a></li>
-      <li><a href="#reforma">Reforma Tributária</a></li>
+      <li><a href="#portais">Notas fiscais</a></li>
       <li><a href="#empresa">A empresa</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
       <li><a href="#contato" class="btn btn-escuro">Fale conosco</a></li>
@@ -619,6 +642,55 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     </div>
   </section>
 
+  <!-- PORTAIS MUNICIPAIS -->
+  <section id="portais" aria-labelledby="titulo-portais">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 id="titulo-portais">Portal do Contribuinte e emissão de NFS-e</h2>
+        <p class="lead">Acesse o portal da prefeitura para emitir notas fiscais de serviço, consultar e pagar o ISS e emitir certidões municipais.</p>
+      </div>
+      <div class="municipios">
+        <a class="municipio" href="https://paulista.tributosmunicipais.com.br/gestor/views/publico/portaldocontribuinte/index.xhtml" target="_blank" rel="noopener">
+          <span class="municipio-uf">PE</span>
+          <strong>Paulista</strong>
+          <small>Sede do escritório</small>
+          <span class="municipio-acao">Acessar portal <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="municipio" href="https://www.tinus.com.br/csp/olinda/portal/index.csp?710sCdY5660iivWk50998LBYX8326yd=pYdR74hHT207yru51652cvcRX576ekXtN9278t0090605YQGT931" target="_blank" rel="noopener">
+          <span class="municipio-uf">PE</span>
+          <strong>Olinda</strong>
+          <small>Portal Tinus</small>
+          <span class="municipio-acao">Acessar portal <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="municipio" href="https://www.tinus.com.br/csp/IGARASSU/portal/index.csp?200hsVg8501arDDH73324hQpA8904og=SmqD63Ald029iNN79353stHhX334cSbgv4661V4417545xCJA197" target="_blank" rel="noopener">
+          <span class="municipio-uf">PE</span>
+          <strong>Igarassu</strong>
+          <small>Portal Tinus</small>
+          <span class="municipio-acao">Acessar portal <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="municipio" href="https://nota.systemainformatica.com.br/v2/login" target="_blank" rel="noopener">
+          <span class="municipio-uf">PE</span>
+          <strong>Itapissuma</strong>
+          <small>Nota fiscal eletrônica</small>
+          <span class="municipio-acao">Acessar portal <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="municipio" href="https://www.tinus.com.br/csp/IPOJUCA/portal/index.csp?006elME8067cYBWj29965VLCI6264by=kyBX36myr928iCT58720VGIlO303NEgQW9236R5973130IHJF045" target="_blank" rel="noopener">
+          <span class="municipio-uf">PE</span>
+          <strong>Ipojuca</strong>
+          <small>Portal Tinus</small>
+          <span class="municipio-acao">Acessar portal <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="municipio" href="https://iss.fortaleza.ce.gov.br/" target="_blank" rel="noopener">
+          <span class="municipio-uf">CE</span>
+          <strong>Fortaleza</strong>
+          <small>ISS Fortaleza</small>
+          <span class="municipio-acao">Acessar portal <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+      </div>
+      <p class="cliente-nota">Não sabe qual portal usar ou precisa de ajuda para emitir a nota? <a href="https://wa.me/5581999180023?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20para%20emitir%20nota%20fiscal." target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>.</p>
+    </div>
+  </section>
+
   <!-- CERTIDÕES -->
   <section id="certidoes" class="passos-sec" aria-labelledby="titulo-certidoes">
     <div class="wrap">
@@ -771,6 +843,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#cliente">Área do cliente</a></li>
         <li><a href="#certidoes">Certidões</a></li>
+        <li><a href="#portais">Portal do Contribuinte e NFS-e</a></li>
         <li><a href="#reforma">Reforma Tributária</a></li>
         <li><a href="#acessos">Acessos rápidos</a></li>
         <li><a href="#empresa">A empresa</a></li>
