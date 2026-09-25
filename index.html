@@ -76,8 +76,8 @@ h3{font-size:1.3rem;font-weight:700;letter-spacing:-.01em}
 .marca-selo{width:44px;height:44px;border-radius:12px;background:var(--petroleo);color:var(--sol);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.15rem}
 .marca-nome{font-family:var(--display);font-weight:700;font-size:1.1rem;line-height:1.1}
 .marca-nome small{display:block;font-family:var(--texto);font-weight:500;font-size:.78rem;color:var(--cinza);letter-spacing:0}
-.menu{display:flex;align-items:center;gap:1.6rem;list-style:none;padding:0}
-.menu a{text-decoration:none;font-weight:500;font-size:.98rem;color:var(--tinta)}
+.menu{display:flex;align-items:center;gap:1.25rem;list-style:none;padding:0}
+.menu a{text-decoration:none;font-weight:500;font-size:.95rem;white-space:nowrap;color:var(--tinta)}
 .menu a.btn,.menu a.btn:hover{color:#fff;text-decoration:none}
 .menu a:hover{color:var(--petroleo-2);text-decoration:underline;text-underline-offset:5px}
 .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.35rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--texto);font-size:1rem;transition:background .2s,color .2s}
@@ -209,6 +209,54 @@ section{padding-block:6rem}
 .acao small{display:block;color:var(--cinza);font-size:.93rem;margin-top:.3rem}
 .cliente-nota{margin-top:1.6rem;color:var(--cinza);font-size:.93rem}
 
+/* ---------- Simulador ---------- */
+.sim-sec{background:var(--folha)}
+.sim{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:1.5rem;align-items:start}
+.sim-form{background:var(--papel);border:1px solid var(--linha);border-radius:var(--radius-lg);padding:1.6rem;position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
+.sim-form h3{margin-bottom:1rem}
+.sim-form .campo{margin-bottom:.9rem}
+.sim-form .campo small{color:var(--cinza);font-size:.82rem;line-height:1.35}
+.sim-prefixo{position:relative}
+.sim-prefixo span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--cinza);font-size:.95rem;pointer-events:none}
+.sim-form .sim-prefixo input{padding-left:2.6rem}
+.sim-sufixo{position:relative}
+.sim-form .sim-sufixo input{padding-right:2.2rem}
+.sim-sufixo span{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--cinza);pointer-events:none}
+.sim-form details{border-top:1px solid var(--linha);padding-top:.9rem;margin-top:.4rem}
+.sim-form summary{cursor:pointer;font-weight:600;font-size:.93rem;color:var(--petroleo-2)}
+.sim-duplo{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
+.sim-res{display:grid;gap:1.2rem;min-width:0}
+.sim-res > *{min-width:0}
+.sim-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.sim-card{background:var(--papel);border:1.5px solid var(--linha);border-radius:var(--radius-sm);padding:1.2rem 1.3rem;position:relative}
+.sim-card.melhor{border-color:var(--sol);box-shadow:0 10px 30px -18px rgba(0,0,0,.4)}
+.sim-card.off{opacity:.6}
+.sim-card h4{font-family:var(--display);font-size:1.1rem;margin:0 0 .15rem}
+.sim-card .sub{font-size:.82rem;color:var(--cinza)}
+.sim-selo{position:absolute;top:-.7rem;right:1rem;background:var(--sol);color:var(--tinta);font-size:.75rem;font-weight:700;padding:.2rem .65rem;border-radius:999px}
+.sim-linhas{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.9rem}
+.sim-linhas div{background:var(--folha);border-radius:8px;padding:.6rem .7rem}
+.sim-linhas small{display:block;font-size:.75rem;color:var(--cinza)}
+.sim-linhas strong{font-family:var(--display);font-size:1.12rem;display:block;line-height:1.2}
+.sim-linhas em{font-style:normal;font-size:.8rem;color:var(--cinza)}
+.sim-var{margin-top:.6rem;font-size:.86rem;font-weight:600}
+.sim-var.sobe{color:#B42318}.sim-var.desce{color:#067647}
+.sim-bloco{background:var(--papel);border:1px solid var(--linha);border-radius:var(--radius-sm);padding:1.3rem}
+.sim-bloco h3{font-size:1.1rem;margin-bottom:.3rem}
+.sim-bloco > p{color:var(--cinza);font-size:.9rem;margin-bottom:.8rem}
+.sim-grafico{overflow-x:auto}
+.sim-grafico svg{width:100%;min-width:520px;height:auto;display:block}
+.sim-legenda{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.85rem;margin-top:.6rem}
+.sim-legenda span{display:inline-flex;align-items:center;gap:.4rem}
+.sim-legenda i{width:18px;height:4px;border-radius:2px;display:inline-block}
+.sim-barras{display:grid;gap:.55rem}
+.sim-barra{display:grid;grid-template-columns:150px 1fr 110px;gap:.7rem;align-items:center;font-size:.88rem}
+.sim-barra div{height:10px;background:var(--folha);border-radius:99px;overflow:hidden}
+.sim-barra div b{display:block;height:100%;background:var(--petroleo-2);border-radius:99px}
+.sim-barra span:last-child{text-align:right;font-weight:600}
+.sim-alerta{background:#FDF6E3;border-left:4px solid var(--sol);border-radius:8px;padding:1rem 1.2rem;font-size:.92rem}
+.sim-aviso{font-size:.82rem;color:var(--cinza)}
+
 /* ---------- Portais municipais ---------- */
 .municipios{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .municipio{position:relative;display:flex;flex-direction:column;gap:.2rem;padding:1.5rem 1.5rem 1.3rem;border:1px solid var(--linha);border-radius:var(--radius-sm);text-decoration:none;background:var(--papel);transition:border-color .2s,transform .2s}
@@ -218,6 +266,14 @@ section{padding-block:6rem}
 .municipio-uf{position:absolute;top:1.1rem;right:1.2rem;font-size:.78rem;font-weight:700;color:var(--sol-escuro);background:#F5ECD6;border-radius:999px;padding:.15rem .6rem}
 .municipio-acao{margin-top:1rem;display:inline-flex;align-items:center;gap:.35rem;font-weight:600;color:var(--petroleo-2)}
 .municipio-acao svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+.nfse-nacional{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;background:var(--petroleo);color:#fff;border-radius:var(--radius-lg);padding:1.6rem 1.8rem;margin-bottom:1.2rem}
+.nfse-nacional .nfse-icone{width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,.12);display:grid;place-items:center}
+.nfse-nacional .nfse-icone svg{width:30px;height:30px;stroke:var(--sol);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nfse-nacional h3{font-size:1.35rem}
+.nfse-nacional p{color:#D5DDE8;margin-top:.3rem;font-size:.95rem;max-width:60ch}
+.nfse-tags{display:flex;gap:.4rem;margin-bottom:.45rem}
+.nfse-tags span{font-size:.75rem;font-weight:700;background:var(--sol);color:var(--tinta);padding:.15rem .6rem;border-radius:999px}
 
 /* ---------- Certidões ---------- */
 .cert-tabela{width:100%;border-collapse:collapse;min-width:640px}
@@ -304,15 +360,18 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .hero .wrap,.reforma,.historia,.contato,.cabeca{grid-template-columns:1fr}
   .hero .wrap{gap:3rem;padding-block:4rem}
   .dispositivos{max-width:540px;margin-inline:auto;width:100%}
+  .sim{grid-template-columns:minmax(0,1fr)}
+  .sim-form{position:static}
   .modos{grid-template-columns:1fr}
   .duvidas-sec .wrap{grid-template-columns:1fr;gap:2rem}
   .procuracao{grid-template-columns:1fr}
+  .nfse-nacional{grid-template-columns:1fr}
   .passos{grid-template-columns:repeat(2,1fr)}
   .acessos,.cliente-grade,.municipios{grid-template-columns:repeat(2,1fr)}
   footer .wrap{grid-template-columns:1fr 1fr}
   footer .wrap > div:first-child{grid-column:1/-1}
 }
-@media (max-width:1040px){
+@media (max-width:1240px){
   .menu-btn{display:block}
   .menu{position:fixed;inset:calc(76px + env(safe-area-inset-top,0px)) 0 auto 0;background:var(--papel);flex-direction:column;align-items:stretch;gap:0;padding:1rem 1.25rem 1.5rem;border-bottom:1px solid var(--linha);display:none}
   .menu.aberto{display:flex}
@@ -346,6 +405,9 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .selo-nuvem{right:-4px;font-size:.72rem}
   .laptop-tela .lanc .prazo{display:none}
   .modo-corpo{padding:1.4rem}
+  .sim-cards{grid-template-columns:minmax(0,1fr)}
+  .sim-barra{grid-template-columns:1fr auto;font-size:.84rem}
+  .sim-barra div{grid-column:1/-1;grid-row:2}
   .passos,.acessos,.cliente-grade,.municipios{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
   .form{padding:1.5rem}
@@ -381,6 +443,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       <li><a href="#cliente">Área do cliente</a></li>
       <li><a href="#certidoes">Certidões</a></li>
       <li><a href="#portais">Notas fiscais</a></li>
+      <li><a href="#reforma">Reforma Tributária</a></li>
       <li><a href="#empresa">A empresa</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
       <li><a href="#contato" class="btn btn-escuro">Fale conosco</a></li>
@@ -607,13 +670,88 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       <div>
         <h2 id="titulo-reforma">Reforma Tributária: sua empresa já está se preparando?</h2>
         <p class="lead" style="margin-top:1.2rem">A reforma do consumo muda a forma de calcular e destacar tributos nos próximos anos. Acompanhamos cada etapa para que a transição aconteça sem sustos.</p>
-        <a class="btn btn-escuro" style="margin-top:2rem" href="#contato">Agendar uma conversa</a>
+        <div style="display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem"><a class="btn btn-sol" href="#simulador">Simular minha empresa</a><a class="btn btn-escuro" href="#contato">Agendar uma conversa</a></div>
       </div>
       <div class="reforma-lista">
         <div><h3>Novos tributos: CBS e IBS</h3><p>PIS, Cofins, IPI, ICMS e ISS serão substituídos gradualmente pela CBS (federal) e pelo IBS (estadual e municipal).</p></div>
         <div><h3>Período de transição</h3><p>A mudança acontece em etapas até 2033. Durante esse período, os dois sistemas convivem, e as notas fiscais passam a trazer novas informações.</p></div>
         <div><h3>Impacto no seu preço e no seu regime</h3><p>Ajudamos a revisar preços, contratos e a avaliar se o regime tributário atual continua sendo o mais vantajoso.</p></div>
         <p class="aviso">As regras seguem em regulamentação. Fale com a gente para uma análise do seu caso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section id="simulador" class="sim-sec" aria-labelledby="titulo-sim">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 id="titulo-sim">Simulador da Reforma Tributária</h2>
+        <p class="lead">Compare, em poucos segundos, quanto sua empresa pagaria hoje e com a reforma em cada regime: Simples Nacional, Simples híbrido, Lucro Presumido e Lucro Real.</p>
+      </div>
+      <div class="sim">
+        <form class="sim-form" id="sim-form" onsubmit="return false">
+          <h3>Dados da empresa</h3>
+          <div class="campo">
+            <label for="s-ativ">Atividade principal</label>
+            <select id="s-ativ">
+              <option value="comercio">Comércio</option>
+              <option value="industria">Indústria</option>
+              <option value="servicos" selected>Serviços em geral</option>
+              <option value="profissao">Profissão regulamentada (contabilidade, advocacia, engenharia…)</option>
+              <option value="saude">Saúde ou educação</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="s-fat">Faturamento anual</label>
+            <div class="sim-prefixo"><span>R$</span><input id="s-fat" inputmode="numeric" value="1.200.000"></div>
+          </div>
+          <div class="campo">
+            <label for="s-folha">Folha de pagamento anual, com pró-labore</label>
+            <div class="sim-prefixo"><span>R$</span><input id="s-folha" inputmode="numeric" value="360.000"></div>
+          </div>
+          <div class="campo">
+            <label for="s-compras">Compras e despesas que geram crédito</label>
+            <div class="sim-sufixo"><input id="s-compras" type="number" min="0" max="100" value="20"><span>%</span></div>
+            <small>Mercadorias, insumos, aluguel, energia, softwares… em % do faturamento.</small>
+          </div>
+          <div class="campo">
+            <label for="s-margem">Lucro antes do IR e da CSLL</label>
+            <div class="sim-sufixo"><input id="s-margem" type="number" min="-100" max="100" value="15"><span>%</span></div>
+            <small>Margem real sobre o faturamento. Usada no Lucro Real.</small>
+          </div>
+          <div class="campo">
+            <label for="s-b2b">Vendas para outras empresas</label>
+            <div class="sim-sufixo"><input id="s-b2b" type="number" min="0" max="100" value="70"><span>%</span></div>
+          </div>
+          <details>
+            <summary>Alíquotas usadas no cálculo</summary>
+            <div class="sim-duplo">
+              <div class="campo"><label for="s-cbs">CBS</label><div class="sim-sufixo"><input id="s-cbs" type="number" step="0.1" value="8.8"><span>%</span></div></div>
+              <div class="campo"><label for="s-ibs">IBS</label><div class="sim-sufixo"><input id="s-ibs" type="number" step="0.1" value="17.7"><span>%</span></div></div>
+              <div class="campo"><label for="s-icms">ICMS atual</label><div class="sim-sufixo"><input id="s-icms" type="number" step="0.5" value="20.5"><span>%</span></div></div>
+              <div class="campo"><label for="s-iss">ISS atual</label><div class="sim-sufixo"><input id="s-iss" type="number" step="0.5" value="5"><span>%</span></div></div>
+            </div>
+            <small style="color:var(--cinza);font-size:.8rem">CBS e IBS: alíquotas de referência estimadas (26,5% no total). Os valores oficiais ainda serão definidos.</small>
+          </details>
+        </form>
+
+        <div class="sim-res" aria-live="polite">
+          <div class="sim-cards" id="sim-cards"></div>
+          <div class="sim-bloco">
+            <h3>Carga tributária ano a ano</h3>
+            <p>Transição de 2026 a 2033: a CBS substitui PIS e Cofins em 2027, e o IBS substitui ICMS e ISS de forma gradual até 2033.</p>
+            <div class="sim-grafico" id="sim-grafico"></div>
+            <div class="sim-legenda" id="sim-legenda"></div>
+          </div>
+          <div class="sim-bloco">
+            <h3>Crédito que seus clientes empresas aproveitam</h3>
+            <p>Com a reforma, quem compra de você desconta o IBS e a CBS pagos. Quanto maior o crédito, mais competitivo fica o seu preço para empresas.</p>
+            <div class="sim-barras" id="sim-credito"></div>
+          </div>
+          <div class="sim-alerta"><strong>Simples híbrido:</strong> a empresa do Simples pode escolher recolher IBS e CBS por fora do DAS. A opção é feita em setembro (vale de janeiro a junho) e em março (vale de julho a dezembro). Fale com a gente antes de decidir.</div>
+          <a class="btn btn-sol" id="sim-cta" href="#" target="_blank" rel="noopener" style="justify-self:start">Quero uma análise detalhada</a>
+          <p class="sim-aviso">Simulação estimada e simplificada, com base nas regras da LC 214/2025, LC 224/2025 e nas alíquotas de referência divulgadas até setembro de 2026. Não considera substituição tributária, benefícios fiscais, regimes específicos, sublimites do Simples nem particularidades da sua operação. Não substitui a análise do contador.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -648,6 +786,15 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       <div class="cabeca">
         <h2 id="titulo-portais">Portal do Contribuinte e emissão de NFS-e</h2>
         <p class="lead">Acesse o portal da prefeitura para emitir notas fiscais de serviço, consultar e pagar o ISS e emitir certidões municipais.</p>
+      </div>
+      <div class="nfse-nacional">
+        <span class="nfse-icone"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+        <div>
+          <div class="nfse-tags"><span>MEI</span><span>ME</span></div>
+          <h3>Emissor Nacional de NFS-e</h3>
+          <p>Emita a nota fiscal de serviço pelo portal do Governo Federal. É o emissor obrigatório para o MEI e é usado também por empresas de municípios que aderiram ao padrão nacional. Entre com a conta gov.br ou o certificado digital.</p>
+        </div>
+        <a class="btn btn-sol" href="https://www.nfse.gov.br/EmissorNacional" target="_blank" rel="noopener">Emitir NFS-e Nacional</a>
       </div>
       <div class="municipios">
         <a class="municipio" href="https://paulista.tributosmunicipais.com.br/gestor/views/publico/portaldocontribuinte/index.xhtml" target="_blank" rel="noopener">
@@ -919,6 +1066,155 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     if (this.mensagem.value.trim()) texto += '\n' + this.mensagem.value.trim();
     window.open('https://wa.me/5581999180023?text=' + encodeURIComponent(texto), '_blank', 'noopener');
   });
+})();
+</script>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var ANEXOS={
+    I:[[180e3,.04,0],[360e3,.073,5940],[720e3,.095,13860],[1.8e6,.107,22500],[3.6e6,.143,87300],[4.8e6,.19,378000]],
+    II:[[180e3,.045,0],[360e3,.078,5940],[720e3,.10,13860],[1.8e6,.112,22500],[3.6e6,.147,85500],[4.8e6,.30,720000]],
+    III:[[180e3,.06,0],[360e3,.112,9360],[720e3,.135,17640],[1.8e6,.16,35640],[3.6e6,.21,125640],[4.8e6,.33,648000]],
+    V:[[180e3,.155,0],[360e3,.18,4500],[720e3,.195,9900],[1.8e6,.205,17100],[3.6e6,.23,62100],[4.8e6,.305,540000]]
+  };
+  /* parcela aproximada do DAS referente a PIS/Cofins(+IPI) e a ICMS/ISS */
+  var PARTES={I:{pc:.155,ii:.34},II:{pc:.215,ii:.32},III:{pc:.172,ii:.335},V:{pc:.172,ii:.14}};
+  var ATIV={
+    comercio:{nome:'Comércio',anexo:'I',pIR:.08,pCS:.12,icms:1,red:0},
+    industria:{nome:'Indústria',anexo:'II',pIR:.08,pCS:.12,icms:1,red:0},
+    servicos:{nome:'Serviços',anexo:null,pIR:.32,pCS:.32,iss:1,red:0},
+    profissao:{nome:'Profissão regulamentada',anexo:null,pIR:.32,pCS:.32,iss:1,red:.30},
+    saude:{nome:'Saúde ou educação',anexo:null,pIR:.32,pCS:.32,iss:1,red:.60}
+  };
+  var ANOS=[2026,2027,2028,2029,2030,2031,2032,2033];
+  var FRAC_IBS={2026:0,2027:0,2028:0,2029:.1,2030:.2,2031:.3,2032:.4,2033:1};
+  var CORES={trad:'#C29A3A',hib:'#1F6399',pres:'#8E9AAB',real:'#1C2533'};
+  var brl=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+  var pct=function(v){return (v*100).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%'};
+  var moeda=function(id){return Number(($(id).value||'').replace(/\D/g,''))||0};
+  var num=function(id){var v=parseFloat(String($(id).value).replace(',','.'));return isNaN(v)?0:v};
+
+  function aliqSimples(anexo,R){
+    var t=ANEXOS[anexo],f=t[t.length-1];
+    for(var i=0;i<t.length;i++){if(R<=t[i][0]){f=t[i];break}}
+    return Math.max(0,(R*f[1]-f[2])/R);
+  }
+
+  function calcular(){
+    var cfg=ATIV[$('s-ativ').value];
+    var R=moeda('s-fat'),F=moeda('s-folha');
+    var C=R*Math.min(Math.max(num('s-compras'),0),100)/100;
+    var L=R*num('s-margem')/100;
+    var b2b=Math.min(Math.max(num('s-b2b'),0),100)/100;
+    var cbs=num('s-cbs')/100,ibs=num('s-ibs')/100,icms=num('s-icms')/100,iss=num('s-iss')/100;
+    if(R<=0) return null;
+    var cbsE=cbs*(1-cfg.red),ibsE=ibs*(1-cfg.red);
+    var iiAntigo=(cfg.icms?icms*Math.max(0,R-C):0)+(cfg.iss?iss*R:0);
+    var inss=F*0.278;
+    var novoCBS=Math.max(0,cbsE*R-cbs*C), novoIBS=Math.max(0,ibsE*R-ibs*C);
+
+    function regular(pcAntigo,ir,cs){
+      return ANOS.map(function(a){
+        var f=FRAC_IBS[a];
+        var pc=a>=2027?novoCBS:pcAntigo;
+        return ir+cs+inss+pc+(1-f)*iiAntigo+f*novoIBS;
+      });
+    }
+    // Lucro Presumido (com acréscimo da LC 224/2025 acima de R$ 5 mi)
+    var bIR=cfg.pIR*Math.min(R,5e6)+cfg.pIR*1.1*Math.max(0,R-5e6);
+    var bCS=cfg.pCS*Math.min(R,5e6)+cfg.pCS*1.1*Math.max(0,R-5e6);
+    var irP=.15*bIR+.10*Math.max(0,bIR-240e3), csP=.09*bCS;
+    // Lucro Real
+    var Lp=Math.max(0,L);
+    var irR=.15*Lp+.10*Math.max(0,Lp-240e3), csR=.09*Lp;
+
+    var res={};
+    res.pres={nome:'Lucro Presumido',sub:'IRPJ/CSLL sobre lucro presumido',ok:R<=78e6,serie:regular(.0365*R,irP,csP),cred:(cbsE+ibsE)*R*b2b};
+    res.real={nome:'Lucro Real',sub:'IRPJ/CSLL sobre o lucro efetivo',ok:true,serie:regular(.0925*Math.max(0,R-C),irR,csR),cred:(cbsE+ibsE)*R*b2b};
+
+    var anexo=cfg.anexo||(F/R>=.28?'III':'V');
+    var das=R*aliqSimples(anexo,R), part=PARTES[anexo];
+    var okS=R<=4.8e6;
+    res.trad={nome:'Simples Nacional',sub:'IBS e CBS dentro do DAS · Anexo '+anexo,ok:okS,serie:ANOS.map(function(){return das}),cred:das*(part.pc+part.ii)*b2b};
+    res.hib={nome:'Simples híbrido',sub:'IBS e CBS por fora do DAS · Anexo '+anexo,ok:okS,serie:ANOS.map(function(a){
+      if(a<2027) return das;
+      var f=FRAC_IBS[a];
+      return das*(1-part.pc-part.ii*f)+novoCBS+f*novoIBS;
+    }),cred:(cbsE+ibsE)*R*b2b};
+    return {R:R,res:res,cfg:cfg,anexo:anexo};
+  }
+
+  function cards(d){
+    var ordem=['trad','hib','pres','real'];
+    var validos=ordem.filter(function(k){return d.res[k].ok});
+    var melhor=validos.reduce(function(a,k){return (!a||d.res[k].serie[7]<d.res[a].serie[7])?k:a},null);
+    $('sim-cards').innerHTML=ordem.map(function(k){
+      var r=d.res[k];
+      if(!r.ok) return '<div class="sim-card off"><h4>'+r.nome+'</h4><div class="sub">Não disponível para este faturamento'+(k==='trad'||k==='hib'?' (limite de R$ 4,8 milhões/ano)':'')+'.</div></div>';
+      var h=r.serie[0],f=r.serie[7],dif=f-h;
+      var cls=Math.abs(dif)<1?'':(dif>0?'sobe':'desce');
+      var txt=Math.abs(dif)<1?'Sem variação relevante':(dif>0?'▲ Aumento de ':'▼ Redução de ')+brl.format(Math.abs(dif))+' por ano';
+      return '<div class="sim-card'+(k===melhor?' melhor':'')+'">'+(k===melhor?'<span class="sim-selo">Menor carga em 2033</span>':'')+
+        '<h4>'+r.nome+'</h4><div class="sub">'+r.sub+'</div>'+
+        '<div class="sim-linhas"><div><small>Hoje (2026)</small><strong>'+brl.format(h)+'</strong><em>'+pct(h/d.R)+' do faturamento</em></div>'+
+        '<div><small>Com a reforma (2033)</small><strong>'+brl.format(f)+'</strong><em>'+pct(f/d.R)+' do faturamento</em></div></div>'+
+        '<div class="sim-var '+cls+'">'+txt+'</div></div>';
+    }).join('');
+    return melhor;
+  }
+
+  function grafico(d){
+    var keys=['trad','hib','pres','real'].filter(function(k){return d.res[k].ok});
+    var W=640,H=260,m={l:64,r:16,t:14,b:30};
+    var max=0,min=Infinity;
+    keys.forEach(function(k){d.res[k].serie.forEach(function(v){max=Math.max(max,v);min=Math.min(min,v)})});
+    var lo=Math.max(0,min*0.85),hi=max*1.05||1;
+    var x=function(i){return m.l+i*(W-m.l-m.r)/(ANOS.length-1)};
+    var y=function(v){return H-m.b-(v-lo)/(hi-lo)*(H-m.t-m.b)};
+    var g='';
+    for(var i=0;i<=4;i++){
+      var v=lo+(hi-lo)*i/4,yy=y(v);
+      g+='<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+yy+'" y2="'+yy+'" stroke="#D6DCE5" stroke-width="1"/>'+
+         '<text x="'+(m.l-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#5A6576">'+(v>=1e6?(v/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi':Math.round(v/1e3)+' mil')+'</text>';
+    }
+    ANOS.forEach(function(a,i){g+='<text x="'+x(i)+'" y="'+(H-8)+'" text-anchor="middle" font-size="11" fill="#5A6576">'+a+'</text>'});
+    keys.forEach(function(k){
+      var pts=d.res[k].serie.map(function(v,i){return x(i)+','+y(v)}).join(' ');
+      g+='<polyline points="'+pts+'" fill="none" stroke="'+CORES[k]+'" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+      d.res[k].serie.forEach(function(v,i){g+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3.5" fill="'+CORES[k]+'"><title>'+d.res[k].nome+' '+ANOS[i]+': '+brl.format(v)+'</title></circle>'});
+    });
+    $('sim-grafico').innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Gráfico da carga tributária anual por regime de 2026 a 2033">'+g+'</svg>';
+    $('sim-legenda').innerHTML=keys.map(function(k){return '<span><i style="background:'+CORES[k]+'"></i>'+d.res[k].nome+'</span>'}).join('');
+  }
+
+  function creditos(d){
+    var keys=['trad','hib','pres','real'].filter(function(k){return d.res[k].ok});
+    var max=Math.max.apply(null,keys.map(function(k){return d.res[k].cred}))||1;
+    $('sim-credito').innerHTML=keys.map(function(k){
+      var r=d.res[k];
+      return '<div class="sim-barra"><span>'+r.nome+'</span><div><b style="width:'+(r.cred/max*100)+'%"></b></div><span>'+brl.format(r.cred)+'/ano</span></div>';
+    }).join('');
+  }
+
+  function atualizar(){
+    var d=calcular();
+    if(!d){$('sim-cards').innerHTML='<div class="sim-card"><h4>Informe o faturamento anual</h4><div class="sub">Os resultados aparecem aqui.</div></div>';return}
+    var melhor=cards(d);grafico(d);creditos(d);
+    var msg='Olá! Fiz a simulação da Reforma Tributária no site.\nAtividade: '+d.cfg.nome+'\nFaturamento anual: '+brl.format(d.R)+
+      (melhor?'\nMenor carga estimada em 2033: '+d.res[melhor].nome:'')+'\nGostaria de uma análise detalhada.';
+    $('sim-cta').href='https://wa.me/5581999180023?text='+encodeURIComponent(msg);
+  }
+
+  ['s-fat','s-folha'].forEach(function(id){
+    $(id).addEventListener('input',function(){
+      var n=this.value.replace(/\D/g,'');
+      this.value=n?Number(n).toLocaleString('pt-BR'):'';
+    });
+  });
+  $('sim-form').addEventListener('input',atualizar);
+  $('sim-form').addEventListener('change',atualizar);
+  atualizar();
 })();
 </script>
 </body>
