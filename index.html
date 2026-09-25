@@ -275,6 +275,13 @@ section{padding-block:6rem}
 .nfse-tags{display:flex;gap:.4rem;margin-bottom:.45rem}
 .nfse-tags span{font-size:.75rem;font-weight:700;background:var(--sol);color:var(--tinta);padding:.15rem .6rem;border-radius:999px}
 
+.mei-prazos{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.mei-prazos div{border-left:3px solid var(--sol);padding:.3rem 0 .3rem 1rem}
+.mei-prazos strong{display:block;font-family:var(--display);font-size:1.5rem;color:#fff;line-height:1.15}
+.mei-prazos span{color:#D5DDE8;font-size:.92rem}
+#mei .acessos{margin-top:0}
+#mei .cabeca .lead{color:#D5DDE8}
+
 /* ---------- Certidões ---------- */
 .cert-tabela{width:100%;border-collapse:collapse;min-width:640px}
 .cert-scroll{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--radius-lg);background:var(--papel)}
@@ -408,7 +415,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .sim-cards{grid-template-columns:minmax(0,1fr)}
   .sim-barra{grid-template-columns:1fr auto;font-size:.84rem}
   .sim-barra div{grid-column:1/-1;grid-row:2}
-  .passos,.acessos,.cliente-grade,.municipios{grid-template-columns:1fr}
+  .passos,.acessos,.cliente-grade,.municipios,.mei-prazos{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
   .form{padding:1.5rem}
   .logo{height:40px}
@@ -844,6 +851,40 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     </div>
   </section>
 
+  <!-- MEI -->
+  <section id="mei" class="acessos-sec" aria-labelledby="titulo-mei">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 id="titulo-mei">Tudo para o MEI</h2>
+        <p class="lead">Abertura, alteração, baixa, guia mensal, declaração anual e nota fiscal: os serviços oficiais do microempreendedor individual em um só lugar.</p>
+      </div>
+      <div class="mei-prazos">
+        <div><strong>Dia 20</strong><span>vencimento do DAS mensal</span></div>
+        <div><strong>31 de maio</strong><span>prazo da DASN-SIMEI (declaração anual)</span></div>
+        <div><strong>Gratuito</strong><span>abrir, alterar e dar baixa no Portal do Empreendedor</span></div>
+      </div>
+      <div class="acessos">
+        <a class="acesso" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei" target="_blank" rel="noopener"><span><strong>Abertura de MEI</strong><small>Formalize-se de graça no Portal do Empreendedor</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/atualizacao-cadastral-de-mei" target="_blank" rel="noopener"><span><strong>Alteração de MEI</strong><small>Endereço, atividades, telefone e outros dados</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www.gov.br/pt-br/servicos/portal-do-empreendedor-quero-deixar-de-ser-mei" target="_blank" rel="noopener"><span><strong>Baixa de MEI</strong><small>Encerramento do CNPJ do MEI</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao" target="_blank" rel="noopener"><span><strong>PGMEI: emitir DAS</strong><small>Guia mensal, atrasadas e DAS consolidado</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/dasnsimei.app/Identificacao" target="_blank" rel="noopener"><span><strong>DASN-SIMEI</strong><small>Declaração anual de faturamento do MEI</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/emissao-de-comprovante-ccmei" target="_blank" rel="noopener"><span><strong>Certificado CCMEI</strong><small>Comprovante de inscrição do MEI</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/atividades-permitidas" target="_blank" rel="noopener"><span><strong>Atividades permitidas</strong><small>Confira se sua ocupação pode ser MEI</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www.nfse.gov.br/EmissorNacional" target="_blank" rel="noopener"><span><strong>Emitir nota fiscal (NFS-e)</strong><small>Emissor Nacional, obrigatório para o MEI</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/ja-sou-mei" target="_blank" rel="noopener"><span><strong>Portal do Empreendedor</strong><small>Todos os serviços para quem já é MEI</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+      <div class="procuracao">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg>
+        <div>
+          <h3>Seu MEI cresceu?</h3>
+          <p>Se o faturamento passou do limite ou você quer contratar mais pessoas e ter sócios, é hora de migrar de MEI para ME. A gente cuida de toda a mudança.</p>
+        </div>
+        <a class="btn btn-sol" href="https://wa.me/5581999180023?text=Ol%C3%A1%21%20Sou%20MEI%20e%20preciso%20de%20ajuda." target="_blank" rel="noopener">Falar sobre meu MEI</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CERTIDÕES -->
   <section id="certidoes" class="passos-sec" aria-labelledby="titulo-certidoes">
     <div class="wrap">
@@ -997,6 +1038,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
         <li><a href="#cliente">Área do cliente</a></li>
         <li><a href="#certidoes">Certidões</a></li>
         <li><a href="#portais">Portal do Contribuinte e NFS-e</a></li>
+        <li><a href="#mei">Tudo para o MEI</a></li>
         <li><a href="#reforma">Reforma Tributária</a></li>
         <li><a href="#acessos">Acessos rápidos</a></li>
         <li><a href="#empresa">A empresa</a></li>
