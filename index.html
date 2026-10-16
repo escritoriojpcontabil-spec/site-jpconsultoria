@@ -297,6 +297,27 @@ section{padding-block:6rem}
 #mei .acessos{margin-top:0}
 #mei .cabeca .lead{color:#D5DDE8}
 
+/* ---------- SEFAZ ---------- */
+.sefaz-busca{max-width:420px;margin-bottom:1.6rem}
+.regiao{margin-bottom:1.6rem}
+.regiao h3{font-size:1rem;color:var(--cinza);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.7rem}
+.ufs{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.7rem}
+.uf{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1px solid var(--linha);border-radius:var(--radius-sm);background:var(--papel);text-decoration:none;transition:border-color .2s,transform .2s}
+.uf:hover{border-color:var(--petroleo);transform:translateY(-2px)}
+.uf b{flex:none;width:40px;height:40px;border-radius:10px;background:var(--petroleo);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:.95rem}
+.uf span{flex:1;font-weight:600;font-size:.95rem;line-height:1.25}
+.uf svg{width:16px;height:16px;flex:none;stroke:var(--petroleo-2);fill:none;stroke-width:2}
+/* Dropdown Acesso rápido */
+.menu .drop{position:relative}
+.menu .drop > button{font:inherit;font-weight:500;font-size:.95rem;background:none;border:0;cursor:pointer;color:var(--tinta);display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap;padding:0}
+.menu .drop > button::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.menu .drop.aberto > button::after{transform:translateY(1px) rotate(-135deg)}
+.drop-lista{position:absolute;top:calc(100% + 14px);left:-1rem;min-width:260px;background:var(--papel);border:1px solid var(--linha);border-radius:var(--radius-sm);box-shadow:0 20px 40px -20px rgba(0,0,0,.35);padding:.5rem;list-style:none;display:none;z-index:70}
+.drop.aberto .drop-lista,.drop:hover .drop-lista,.drop:focus-within .drop-lista{display:block}
+.drop-lista a{display:block;padding:.6rem .8rem;border-radius:8px}
+.drop-lista a:hover{background:var(--folha);text-decoration:none!important}
+.drop-lista small{display:block;color:var(--cinza);font-size:.8rem;font-weight:400}
+
 /* ---------- Certidões ---------- */
 .cert-tabela{width:100%;border-collapse:collapse;min-width:640px}
 .cert-scroll{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--radius-lg);background:var(--papel)}
@@ -432,6 +453,11 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .sim-barra div{grid-column:1/-1;grid-row:2}
   .faixa-mei .wrap{flex-direction:column;align-items:flex-start}
   .faixa-mei-links a{font-size:.86rem;padding:.5rem .8rem}
+  .menu .drop > button{display:flex;width:100%;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid var(--linha)}
+  .drop-lista{position:static;box-shadow:none;border:0;padding:0 0 0 1rem;min-width:0}
+  .drop:hover .drop-lista,.drop:focus-within .drop-lista{display:none}
+  .drop.aberto .drop-lista{display:block}
+  .menu .drop-lista a{border-bottom:0;padding:.6rem 0}
   .menu a.menu-mei{display:inline-block;margin:.4rem 0}
   .passos,.acessos,.cliente-grade,.municipios,.mei-prazos{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
@@ -467,8 +493,16 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       <li><a href="#mei" class="menu-mei">MEI</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#cliente">Área do cliente</a></li>
-      <li><a href="#certidoes">Certidões</a></li>
-      <li><a href="#portais">Notas fiscais</a></li>
+      <li class="drop">
+        <button type="button" aria-expanded="false" aria-haspopup="true">Acesso rápido</button>
+        <ul class="drop-lista">
+          <li><a href="#acessos">Portais federais<small>Receita, Simples, eSocial</small></a></li>
+          <li><a href="#sefaz">SEFAZ de todos os estados<small>Os 27 estados do Brasil</small></a></li>
+          <li><a href="#portais">Notas fiscais e prefeituras<small>NFS-e Nacional e portais municipais</small></a></li>
+          <li><a href="#mei">Serviços do MEI<small>DAS, declaração anual, abertura e baixa</small></a></li>
+          <li><a href="#certidoes">Certidões<small>Federal, FGTS, trabalhista, estadual e municipal</small></a></li>
+        </ul>
+      </li>
       <li><a href="#reforma">Reforma Tributária</a></li>
       <li><a href="#empresa">A empresa</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
@@ -820,6 +854,25 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     </div>
   </section>
 
+  <!-- SEFAZ BRASIL -->
+  <section id="sefaz" aria-labelledby="titulo-sefaz">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 id="titulo-sefaz">SEFAZ em todo o Brasil</h2>
+        <p class="lead">Acesse a Secretaria da Fazenda de qualquer estado para ICMS, inscrição estadual, emissão de guias (DAE/DARE) e certidões estaduais.</p>
+      </div>
+      <div class="campo sefaz-busca"><label for="busca-uf">Procurar estado</label><input id="busca-uf" type="search" placeholder="Digite o nome ou a sigla, ex.: PE, Bahia"></div>
+      <div id="sefaz-lista">
+<div class="regiao"><h3>Nordeste</h3><div class="ufs"><a class="uf" href="https://www.sefaz.al.gov.br" target="_blank" rel="noopener" data-busca="al alagoas"><b>AL</b><span>Alagoas</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.ba.gov.br" target="_blank" rel="noopener" data-busca="ba bahia"><b>BA</b><span>Bahia</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.ce.gov.br" target="_blank" rel="noopener" data-busca="ce ceará"><b>CE</b><span>Ceará</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.ma.gov.br" target="_blank" rel="noopener" data-busca="ma maranhão"><b>MA</b><span>Maranhão</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.pb.gov.br" target="_blank" rel="noopener" data-busca="pb paraíba"><b>PB</b><span>Paraíba</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.pe.gov.br" target="_blank" rel="noopener" data-busca="pe pernambuco"><b>PE</b><span>Pernambuco</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://portal.sefaz.pi.gov.br" target="_blank" rel="noopener" data-busca="pi piauí"><b>PI</b><span>Piauí</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.set.rn.gov.br" target="_blank" rel="noopener" data-busca="rn rio grande do norte"><b>RN</b><span>Rio Grande do Norte</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.se.gov.br" target="_blank" rel="noopener" data-busca="se sergipe"><b>SE</b><span>Sergipe</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div>
+<div class="regiao"><h3>Norte</h3><div class="ufs"><a class="uf" href="https://sefaz.ac.gov.br" target="_blank" rel="noopener" data-busca="ac acre"><b>AC</b><span>Acre</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.ap.gov.br" target="_blank" rel="noopener" data-busca="ap amapá"><b>AP</b><span>Amapá</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.am.gov.br" target="_blank" rel="noopener" data-busca="am amazonas"><b>AM</b><span>Amazonas</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefa.pa.gov.br" target="_blank" rel="noopener" data-busca="pa pará"><b>PA</b><span>Pará</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefin.ro.gov.br" target="_blank" rel="noopener" data-busca="ro rondônia"><b>RO</b><span>Rondônia</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.rr.gov.br" target="_blank" rel="noopener" data-busca="rr roraima"><b>RR</b><span>Roraima</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.to.gov.br/sefaz" target="_blank" rel="noopener" data-busca="to tocantins"><b>TO</b><span>Tocantins</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div>
+<div class="regiao"><h3>Centro-Oeste</h3><div class="ufs"><a class="uf" href="https://www.receita.fazenda.df.gov.br" target="_blank" rel="noopener" data-busca="df distrito federal"><b>DF</b><span>Distrito Federal</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://goias.gov.br/economia/" target="_blank" rel="noopener" data-busca="go goiás"><b>GO</b><span>Goiás</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.mt.gov.br" target="_blank" rel="noopener" data-busca="mt mato grosso"><b>MT</b><span>Mato Grosso</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sefaz.ms.gov.br" target="_blank" rel="noopener" data-busca="ms mato grosso do sul"><b>MS</b><span>Mato Grosso do Sul</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div>
+<div class="regiao"><h3>Sudeste</h3><div class="ufs"><a class="uf" href="https://sefaz.es.gov.br" target="_blank" rel="noopener" data-busca="es espírito santo"><b>ES</b><span>Espírito Santo</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.fazenda.mg.gov.br" target="_blank" rel="noopener" data-busca="mg minas gerais"><b>MG</b><span>Minas Gerais</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://portal.fazenda.rj.gov.br" target="_blank" rel="noopener" data-busca="rj rio de janeiro"><b>RJ</b><span>Rio de Janeiro</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://portal.fazenda.sp.gov.br" target="_blank" rel="noopener" data-busca="sp são paulo"><b>SP</b><span>São Paulo</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div>
+<div class="regiao"><h3>Sul</h3><div class="ufs"><a class="uf" href="https://www.fazenda.pr.gov.br" target="_blank" rel="noopener" data-busca="pr paraná"><b>PR</b><span>Paraná</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://receita.fazenda.rs.gov.br" target="_blank" rel="noopener" data-busca="rs rio grande do sul"><b>RS</b><span>Rio Grande do Sul</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="uf" href="https://www.sef.sc.gov.br" target="_blank" rel="noopener" data-busca="sc santa catarina"><b>SC</b><span>Santa Catarina</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div>
+      </div>
+      <p class="cliente-nota" id="sefaz-vazio" hidden>Nenhum estado encontrado. Confira o nome digitado.</p>
+    </div>
+  </section>
+
   <!-- PORTAIS MUNICIPAIS -->
   <section id="portais" aria-labelledby="titulo-portais">
     <div class="wrap">
@@ -1070,6 +1123,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#cliente">Área do cliente</a></li>
         <li><a href="#certidoes">Certidões</a></li>
+        <li><a href="#sefaz">SEFAZ em todo o Brasil</a></li>
         <li><a href="#portais">Portal do Contribuinte e NFS-e</a></li>
         <li><a href="#mei">Tudo para o MEI</a></li>
         <li><a href="#reforma">Reforma Tributária</a></li>
@@ -1296,6 +1350,31 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   $('sim-form').addEventListener('input',atualizar);
   $('sim-form').addEventListener('change',atualizar);
   atualizar();
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.menu .drop').forEach(function(d){
+    var b=d.querySelector('button');
+    b.addEventListener('click',function(e){e.stopPropagation();var a=d.classList.toggle('aberto');b.setAttribute('aria-expanded',a)});
+    d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){d.classList.remove('aberto');b.setAttribute('aria-expanded','false')})});
+  });
+  document.addEventListener('click',function(){document.querySelectorAll('.menu .drop.aberto').forEach(function(d){d.classList.remove('aberto')})});
+  var busca=document.getElementById('busca-uf');
+  var tira=function(t){return t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()};
+  busca.addEventListener('input',function(){
+    var q=tira(this.value),total=0;
+    document.querySelectorAll('#sefaz .regiao').forEach(function(r){
+      var vis=0;
+      r.querySelectorAll('.uf').forEach(function(u){
+        var ok=!q||tira(u.dataset.busca).split(' ').some(function(p){return p.indexOf(q)===0})||tira(u.dataset.busca).indexOf(q)>=0;
+        u.style.display=ok?'':'none'; if(ok)vis++;
+      });
+      r.style.display=vis?'':'none'; total+=vis;
+    });
+    document.getElementById('sefaz-vazio').hidden=total>0;
+  });
 })();
 </script>
 </body>
