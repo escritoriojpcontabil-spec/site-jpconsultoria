@@ -318,6 +318,13 @@ section{padding-block:6rem}
 .drop-lista a:hover{background:var(--folha);text-decoration:none!important}
 .drop-lista small{display:block;color:var(--cinza);font-size:.8rem;font-weight:400}
 
+.consultas-titulo{font-size:1.15rem;margin:2.4rem 0 1rem;color:#fff}
+.acessos.consultas{margin-top:0;grid-template-columns:repeat(3,1fr)}
+
+.menu a.menu-portal{border:2px solid var(--petroleo);color:var(--petroleo);padding:.45rem .9rem;border-radius:999px;font-weight:600}
+.menu a.menu-portal:hover{background:var(--petroleo);color:#fff;text-decoration:none}
+.portal-cliente{margin-bottom:1.4rem}
+
 /* ---------- Certidões ---------- */
 .cert-tabela{width:100%;border-collapse:collapse;min-width:640px}
 .cert-scroll{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--radius-lg);background:var(--papel)}
@@ -410,7 +417,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .procuracao{grid-template-columns:1fr}
   .nfse-nacional{grid-template-columns:1fr}
   .passos{grid-template-columns:repeat(2,1fr)}
-  .acessos,.cliente-grade,.municipios{grid-template-columns:repeat(2,1fr)}
+  .acessos,.acessos.consultas,.cliente-grade,.municipios{grid-template-columns:repeat(2,1fr)}
   footer .wrap{grid-template-columns:1fr 1fr}
   footer .wrap > div:first-child{grid-column:1/-1}
 }
@@ -459,7 +466,8 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .drop.aberto .drop-lista{display:block}
   .menu .drop-lista a{border-bottom:0;padding:.6rem 0}
   .menu a.menu-mei{display:inline-block;margin:.4rem 0}
-  .passos,.acessos,.cliente-grade,.municipios,.mei-prazos{grid-template-columns:1fr}
+  .menu a.menu-portal{display:inline-block;margin:.6rem 0 0;border-bottom:2px solid var(--petroleo)}
+  .passos,.acessos,.acessos.consultas,.cliente-grade,.municipios,.mei-prazos{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
   .form{padding:1.5rem}
   .logo{height:40px}
@@ -492,12 +500,13 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     <ul class="menu" id="menu">
       <li><a href="#mei" class="menu-mei">MEI</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#cliente">Área do cliente</a></li>
       <li class="drop">
         <button type="button" aria-expanded="false" aria-haspopup="true">Acesso rápido</button>
         <ul class="drop-lista">
+          <li><a href="https://sistema.jpconsultoriacontabil.com.br/portal.html" target="_blank" rel="noopener">Portal do Cliente<small>Seus documentos com login</small></a></li>
           <li><a href="#acessos">Portais federais<small>Receita, Simples, eSocial</small></a></li>
           <li><a href="#sefaz">SEFAZ de todos os estados<small>Os 27 estados do Brasil</small></a></li>
+          <li><a href="#consultas">Consultas fiscais<small>Inscrição estadual e tabela NCM</small></a></li>
           <li><a href="#portais">Notas fiscais e prefeituras<small>NFS-e Nacional e portais municipais</small></a></li>
           <li><a href="#mei">Serviços do MEI<small>DAS, declaração anual, abertura e baixa</small></a></li>
           <li><a href="#certidoes">Certidões<small>Federal, FGTS, trabalhista, estadual e municipal</small></a></li>
@@ -505,7 +514,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       </li>
       <li><a href="#reforma">Reforma Tributária</a></li>
       <li><a href="#empresa">A empresa</a></li>
-      <li><a href="#duvidas">Dúvidas</a></li>
+      <li><a href="https://sistema.jpconsultoriacontabil.com.br/portal.html" class="menu-portal" target="_blank" rel="noopener">Portal do Cliente</a></li>
       <li><a href="#contato" class="btn btn-escuro">Fale conosco</a></li>
     </ul>
   </div>
@@ -706,7 +715,15 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     <div class="wrap">
       <div class="cabeca">
         <h2 id="titulo-cliente">Área do cliente</h2>
-        <p class="lead">Já é cliente? Escolha o que precisa e a mensagem chega pronta no nosso WhatsApp, com prioridade no atendimento.</p>
+        <p class="lead">Já é cliente? Acesse seus documentos no portal ou escolha abaixo o que precisa: a mensagem chega pronta no nosso WhatsApp.</p>
+      </div>
+      <div class="nfse-nacional portal-cliente">
+        <span class="nfse-icone"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.5"/></svg></span>
+        <div>
+          <h3>Portal do Cliente</h3>
+          <p>Entre com seu login para acessar os documentos da sua empresa: guias, holerites, relatórios, declarações e contratos, disponíveis a qualquer hora.</p>
+        </div>
+        <a class="btn btn-sol" href="https://sistema.jpconsultoriacontabil.com.br/portal.html" target="_blank" rel="noopener">Acessar meus documentos</a>
       </div>
       <div class="cliente-grade">
         <a class="acao" href="https://wa.me/5581999180023?text=Ol%C3%A1%21%20Sou%20cliente%20e%20quero%20enviar%20os%20documentos%20do%20m%C3%AAs.%20Empresa%3A%20" target="_blank" rel="noopener">
@@ -842,6 +859,11 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
         <a class="acesso" href="https://www.gov.br/esocial/pt-br" target="_blank" rel="noopener"><span><strong>eSocial</strong><small>Obrigações trabalhistas e previdenciárias</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         <a class="acesso" href="https://www.sefaz.pe.gov.br" target="_blank" rel="noopener"><span><strong>SEFAZ Pernambuco</strong><small>ICMS, inscrição estadual e ARE Virtual</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         <a class="acesso" href="https://paulista.tributosmunicipais.com.br/gestor/views/publico/portaldocontribuinte/index.xhtml" target="_blank" rel="noopener"><span><strong>Prefeitura do Paulista</strong><small>Portal do contribuinte: ISS, guias e débitos</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+      <h3 id="consultas" class="consultas-titulo">Consultas fiscais</h3>
+      <div class="acessos consultas">
+        <a class="acesso" href="https://www.consultaie.com.br/" target="_blank" rel="noopener"><span><strong>Consulta IE</strong><small>Inscrição estadual de clientes e fornecedores</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="acesso" href="https://portalunico.siscomex.gov.br/classif/#/sumario?perfil=publico" target="_blank" rel="noopener"><span><strong>Classificação fiscal (NCM)</strong><small>Tabela NCM no Portal Único Siscomex</small></span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       </div>
       <div class="procuracao">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.5"/></svg>
@@ -1121,6 +1143,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
       <h3>Navegue</h3>
       <ul>
         <li><a href="#servicos">Serviços</a></li>
+        <li><a href="https://sistema.jpconsultoriacontabil.com.br/portal.html" target="_blank" rel="noopener">Portal do Cliente</a></li>
         <li><a href="#cliente">Área do cliente</a></li>
         <li><a href="#certidoes">Certidões</a></li>
         <li><a href="#sefaz">SEFAZ em todo o Brasil</a></li>
