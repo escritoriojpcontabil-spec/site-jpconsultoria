@@ -325,6 +325,10 @@ section{padding-block:6rem}
 .menu a.menu-portal:hover{background:var(--petroleo);color:#fff;text-decoration:none}
 .portal-cliente{margin-bottom:1.4rem}
 
+.menu a.menu-cert{background:var(--folha);color:var(--petroleo);padding:.35rem .8rem;border-radius:999px;font-weight:700}
+.menu a.menu-cert:hover{background:var(--linha);text-decoration:none}
+.cert-topo{padding-block:4.5rem}
+
 /* ---------- Certidões ---------- */
 .cert-tabela{width:100%;border-collapse:collapse;min-width:640px}
 .cert-scroll{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--radius-lg);background:var(--papel)}
@@ -466,6 +470,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   .drop.aberto .drop-lista{display:block}
   .menu .drop-lista a{border-bottom:0;padding:.6rem 0}
   .menu a.menu-mei{display:inline-block;margin:.4rem 0}
+  .menu a.menu-cert{display:inline-block;margin:0 0 .4rem}
   .menu a.menu-portal{display:inline-block;margin:.6rem 0 0;border-bottom:2px solid var(--petroleo)}
   .passos,.acessos,.acessos.consultas,.cliente-grade,.municipios,.mei-prazos{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
@@ -499,6 +504,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <ul class="menu" id="menu">
       <li><a href="#mei" class="menu-mei">MEI</a></li>
+      <li><a href="#certidoes" class="menu-cert">Certidões</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li class="drop">
         <button type="button" aria-expanded="false" aria-haspopup="true">Acesso rápido</button>
@@ -513,7 +519,6 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
         </ul>
       </li>
       <li><a href="#reforma">Reforma Tributária</a></li>
-      <li><a href="#empresa">A empresa</a></li>
       <li><a href="https://sistema.jpconsultoriacontabil.com.br/portal.html" class="menu-portal" target="_blank" rel="noopener">Portal do Cliente</a></li>
       <li><a href="#contato" class="btn btn-escuro">Fale conosco</a></li>
     </ul>
@@ -581,6 +586,33 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
             <div class="bolha">Prontinho! Vence dia 20. 😉<small>09:14</small></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIDÕES -->
+  <section id="certidoes" class="passos-sec cert-topo" aria-labelledby="titulo-certidoes">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 id="titulo-certidoes">Certidões da sua empresa</h2>
+        <p class="lead">As certidões negativas comprovam que a empresa está regular. São pedidas em licitações, financiamentos, contratos com grandes clientes e alterações cadastrais.</p>
+      </div>
+      <div class="cert-scroll">
+        <table class="cert-tabela">
+          <thead><tr><th>Esfera</th><th>Certidão</th><th>Validade</th><th><span class="sr">Link</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="esfera ">Federal</span></td><td><strong>Certidão de Débitos Federais (CND)</strong><small>Receita Federal e PGFN</small></td><td><span class="cert-val">Validade: </span>180 dias</td><td><a class="cert-link" href="https://servicos.receitafederal.gov.br/servico/certidoes/#/home" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
+            <tr><td><span class="esfera ">Federal</span></td><td><strong>Certidão de Regularidade do FGTS (CRF)</strong><small>Caixa Econômica Federal</small></td><td><span class="cert-val">Validade: </span>30 dias</td><td><a class="cert-link" href="https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
+            <tr><td><span class="esfera ">Federal</span></td><td><strong>Certidão Negativa de Débitos Trabalhistas (CNDT)</strong><small>Tribunal Superior do Trabalho</small></td><td><span class="cert-val">Validade: </span>180 dias</td><td><a class="cert-link" href="https://cndt-certidao.tst.jus.br/inicio.faces" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
+            <tr><td><span class="esfera est">Estadual</span></td><td><strong>Certidão de Regularidade Fiscal</strong><small>SEFAZ Pernambuco</small></td><td><span class="cert-val">Validade: </span>Indicada no documento</td><td><a class="cert-link" href="https://efisco.sefaz.pe.gov.br/sfi_trb_gcc/PREmitirCertidaoRegularidadeFiscalMovel" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
+            <tr><td><span class="esfera est">Estadual</span></td><td><strong>Certidão Negativa de Débitos (dívida ativa)</strong><small>SEFAZ Pernambuco</small></td><td><span class="cert-val">Validade: </span>Indicada no documento</td><td><a class="cert-link" href="https://efisco.sefaz.pe.gov.br/sfi_fin_gpc/PREmitirCertidaoRegularidadeWeb" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
+            <tr><td><span class="esfera mun">Municipal</span></td><td><strong>Certidão Negativa de Débitos Municipais</strong><small>Prefeitura do Paulista</small></td><td><span class="cert-val">Validade: </span>Indicada no documento</td><td><a class="cert-link" href="https://paulista.tributosmunicipais.com.br/gestor/views/publico/portaldocontribuinte/publico/pessoajuridica/pessoajuridica.xhtml" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cert-rodape">
+        <p>Se a certidão sair positiva, não se preocupe: identificamos a pendência e cuidamos da regularização, inclusive parcelamentos.</p>
+        <a class="btn btn-escuro" href="https://wa.me/5581999180023?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20certid%C3%B5es%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir ajuda com certidões</a>
       </div>
     </div>
   </section>
@@ -989,33 +1021,6 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
           <p>Se o faturamento passou do limite ou você quer contratar mais pessoas e ter sócios, é hora de migrar de MEI para ME. A gente cuida de toda a mudança.</p>
         </div>
         <a class="btn btn-sol" href="https://wa.me/5581999180023?text=Ol%C3%A1%21%20Sou%20MEI%20e%20preciso%20de%20ajuda." target="_blank" rel="noopener">Falar sobre meu MEI</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIDÕES -->
-  <section id="certidoes" class="passos-sec" aria-labelledby="titulo-certidoes">
-    <div class="wrap">
-      <div class="cabeca">
-        <h2 id="titulo-certidoes">Certidões da sua empresa</h2>
-        <p class="lead">As certidões negativas comprovam que a empresa está regular. São pedidas em licitações, financiamentos, contratos com grandes clientes e alterações cadastrais.</p>
-      </div>
-      <div class="cert-scroll">
-        <table class="cert-tabela">
-          <thead><tr><th>Esfera</th><th>Certidão</th><th>Validade</th><th><span class="sr">Link</span></th></tr></thead>
-          <tbody>
-            <tr><td><span class="esfera ">Federal</span></td><td><strong>Certidão de Débitos Federais (CND)</strong><small>Receita Federal e PGFN</small></td><td><span class="cert-val">Validade: </span>180 dias</td><td><a class="cert-link" href="https://servicos.receitafederal.gov.br/servico/certidoes/#/home" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
-            <tr><td><span class="esfera ">Federal</span></td><td><strong>Certidão de Regularidade do FGTS (CRF)</strong><small>Caixa Econômica Federal</small></td><td><span class="cert-val">Validade: </span>30 dias</td><td><a class="cert-link" href="https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
-            <tr><td><span class="esfera ">Federal</span></td><td><strong>Certidão Negativa de Débitos Trabalhistas (CNDT)</strong><small>Tribunal Superior do Trabalho</small></td><td><span class="cert-val">Validade: </span>180 dias</td><td><a class="cert-link" href="https://cndt-certidao.tst.jus.br/inicio.faces" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
-            <tr><td><span class="esfera est">Estadual</span></td><td><strong>Certidão de Regularidade Fiscal</strong><small>SEFAZ Pernambuco</small></td><td><span class="cert-val">Validade: </span>Indicada no documento</td><td><a class="cert-link" href="https://efisco.sefaz.pe.gov.br/sfi_trb_gcc/PREmitirCertidaoRegularidadeFiscalMovel" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
-            <tr><td><span class="esfera est">Estadual</span></td><td><strong>Certidão Negativa de Débitos (dívida ativa)</strong><small>SEFAZ Pernambuco</small></td><td><span class="cert-val">Validade: </span>Indicada no documento</td><td><a class="cert-link" href="https://efisco.sefaz.pe.gov.br/sfi_fin_gpc/PREmitirCertidaoRegularidadeWeb" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
-            <tr><td><span class="esfera mun">Municipal</span></td><td><strong>Certidão Negativa de Débitos Municipais</strong><small>Prefeitura do Paulista</small></td><td><span class="cert-val">Validade: </span>Indicada no documento</td><td><a class="cert-link" href="https://paulista.tributosmunicipais.com.br/gestor/views/publico/portaldocontribuinte/index.xhtml" target="_blank" rel="noopener">Emitir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="cert-rodape">
-        <p>Se a certidão sair positiva, não se preocupe: identificamos a pendência e cuidamos da regularização, inclusive parcelamentos.</p>
-        <a class="btn btn-escuro" href="https://wa.me/5581999180023?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20certid%C3%B5es%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir ajuda com certidões</a>
       </div>
     </div>
   </section>
