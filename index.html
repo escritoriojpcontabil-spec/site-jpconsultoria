@@ -272,6 +272,14 @@ section{padding-block:6rem}
 .sim-alerta{background:#FDF6E3;border-left:4px solid var(--sol);border-radius:8px;padding:1rem 1.2rem;font-size:.92rem}
 .sim-aviso{font-size:.82rem;color:var(--cinza)}
 
+.sim-rotulo{font-weight:600;font-size:.93rem}
+.sim-periodo{display:grid;grid-template-columns:1fr 1fr;background:var(--folha);border-radius:999px;padding:4px;gap:4px}
+.sim-periodo label{cursor:pointer;position:relative}
+.sim-periodo input{position:absolute;opacity:0;pointer-events:none}
+.sim-periodo span{display:block;text-align:center;padding:.55rem;border-radius:999px;font-weight:600;font-size:.95rem;color:var(--cinza);transition:background .2s,color .2s}
+.sim-periodo input:checked + span{background:var(--petroleo);color:#fff}
+.sim-periodo input:focus-visible + span{outline:3px solid var(--sol);outline-offset:2px}
+
 /* ---------- Portais municipais ---------- */
 .municipios{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .municipio{position:relative;display:flex;flex-direction:column;gap:.2rem;padding:1.5rem 1.5rem 1.3rem;border:1px solid var(--linha);border-radius:var(--radius-sm);text-decoration:none;background:var(--papel);transition:border-color .2s,transform .2s}
@@ -827,12 +835,19 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
             </select>
           </div>
           <div class="campo">
-            <label for="s-fat">Faturamento anual</label>
-            <div class="sim-prefixo"><span>R$</span><input id="s-fat" inputmode="numeric" value="1.200.000"></div>
+            <span class="sim-rotulo">Informar valores por</span>
+            <div class="sim-periodo" role="radiogroup" aria-label="Período dos valores">
+              <label><input type="radio" name="s-periodo" value="mensal" checked><span>Mês</span></label>
+              <label><input type="radio" name="s-periodo" value="anual"><span>Ano</span></label>
+            </div>
           </div>
           <div class="campo">
-            <label for="s-folha">Folha de pagamento anual, com pró-labore</label>
-            <div class="sim-prefixo"><span>R$</span><input id="s-folha" inputmode="numeric" value="360.000"></div>
+            <label for="s-fat">Faturamento <span class="s-per">mensal</span></label>
+            <div class="sim-prefixo"><span>R$</span><input id="s-fat" inputmode="numeric" value="100.000"></div>
+          </div>
+          <div class="campo">
+            <label for="s-folha">Folha de pagamento <span class="s-per">mensal</span>, com pró-labore</label>
+            <div class="sim-prefixo"><span>R$</span><input id="s-folha" inputmode="numeric" value="30.000"></div>
           </div>
           <div class="campo">
             <label for="s-compras">Compras e despesas que geram crédito</label>
@@ -851,12 +866,12 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
           <details>
             <summary>Alíquotas usadas no cálculo</summary>
             <div class="sim-duplo">
-              <div class="campo"><label for="s-cbs">CBS</label><div class="sim-sufixo"><input id="s-cbs" type="number" step="0.1" value="8.8"><span>%</span></div></div>
+              <div class="campo"><label for="s-cbs">CBS (TCU)</label><div class="sim-sufixo"><input id="s-cbs" type="number" step="0.1" value="11.3"><span>%</span></div></div>
               <div class="campo"><label for="s-ibs">IBS</label><div class="sim-sufixo"><input id="s-ibs" type="number" step="0.1" value="17.7"><span>%</span></div></div>
               <div class="campo"><label for="s-icms">ICMS atual</label><div class="sim-sufixo"><input id="s-icms" type="number" step="0.5" value="20.5"><span>%</span></div></div>
               <div class="campo"><label for="s-iss">ISS atual</label><div class="sim-sufixo"><input id="s-iss" type="number" step="0.5" value="5"><span>%</span></div></div>
             </div>
-            <small style="color:var(--cinza);font-size:.8rem">CBS e IBS: alíquotas de referência estimadas (26,5% no total). Os valores oficiais ainda serão definidos.</small>
+            <small style="color:var(--cinza);font-size:.8rem">CBS: 11,3%, alíquota de referência calculada pelo TCU (out/2026). IBS: estimativa, ainda em cálculo pelos estados e municípios. As alíquotas finais serão fixadas pelo Senado.</small>
           </details>
         </form>
 
@@ -864,7 +879,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
           <div class="sim-cards" id="sim-cards"></div>
           <div class="sim-bloco">
             <h3>Carga tributária ano a ano</h3>
-            <p>Transição de 2026 a 2033: a CBS substitui PIS e Cofins em 2027, e o IBS substitui ICMS e ISS de forma gradual até 2033.</p>
+            <p><span class="s-per-cap">Valores mensais</span>. Transição de 2026 a 2033: a CBS substitui PIS e Cofins em 2027, e o IBS substitui ICMS e ISS de forma gradual até 2033.</p>
             <div class="sim-grafico" id="sim-grafico"></div>
             <div class="sim-legenda" id="sim-legenda"></div>
           </div>
@@ -875,7 +890,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
           </div>
           <div class="sim-alerta"><strong>Simples híbrido:</strong> a empresa do Simples pode escolher recolher IBS e CBS por fora do DAS. A opção é feita em setembro (vale de janeiro a junho) e em março (vale de julho a dezembro). Fale com a gente antes de decidir.</div>
           <a class="btn btn-sol" id="sim-cta" href="#" target="_blank" rel="noopener" style="justify-self:start">Quero uma análise detalhada</a>
-          <p class="sim-aviso">Simulação estimada e simplificada, com base nas regras da LC 214/2025, LC 224/2025 e nas alíquotas de referência divulgadas até setembro de 2026. Não considera substituição tributária, benefícios fiscais, regimes específicos, sublimites do Simples nem particularidades da sua operação. Não substitui a análise do contador.</p>
+          <p class="sim-aviso">Simulação estimada e simplificada, com base nas regras da LC 214/2025, LC 224/2025 e nas alíquotas de referência divulgadas até novembro de 2026, incluindo a CBS de 11,3% calculada pelo TCU. Não considera substituição tributária, benefícios fiscais, regimes específicos, sublimites do Simples nem particularidades da sua operação. Não substitui a análise do contador.</p>
         </div>
       </div>
     </div>
@@ -1261,6 +1276,10 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
   var moeda=function(id){return Number(($(id).value||'').replace(/\D/g,''))||0};
   var num=function(id){var v=parseFloat(String($(id).value).replace(',','.'));return isNaN(v)?0:v};
 
+  function periodo(){var r=document.querySelector('input[name="s-periodo"]:checked');return r?r.value:'anual'}
+  var div=function(){return periodo()==='mensal'?12:1};
+  var fmt=function(v){return brl.format(v/div())};
+  var porPer=function(){return periodo()==='mensal'?' por mês':' por ano'};
   function aliqSimples(anexo,R){
     var t=ANEXOS[anexo],f=t[t.length-1];
     for(var i=0;i<t.length;i++){if(R<=t[i][0]){f=t[i];break}}
@@ -1269,7 +1288,8 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
 
   function calcular(){
     var cfg=ATIV[$('s-ativ').value];
-    var R=moeda('s-fat'),F=moeda('s-folha');
+    var P=periodo()==='mensal'?12:1;
+    var R=moeda('s-fat')*P,F=moeda('s-folha')*P;
     var C=R*Math.min(Math.max(num('s-compras'),0),100)/100;
     var L=R*num('s-margem')/100;
     var b2b=Math.min(Math.max(num('s-b2b'),0),100)/100;
@@ -1317,14 +1337,14 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     var melhor=validos.reduce(function(a,k){return (!a||d.res[k].serie[7]<d.res[a].serie[7])?k:a},null);
     $('sim-cards').innerHTML=ordem.map(function(k){
       var r=d.res[k];
-      if(!r.ok) return '<div class="sim-card off"><h4>'+r.nome+'</h4><div class="sub">Não disponível para este faturamento'+(k==='trad'||k==='hib'?' (limite de R$ 4,8 milhões/ano)':'')+'.</div></div>';
+      if(!r.ok) return '<div class="sim-card off"><h4>'+r.nome+'</h4><div class="sub">Não disponível para este faturamento'+(k==='trad'||k==='hib'?' (limite de R$ 4,8 milhões por ano)':'')+'.</div></div>';
       var h=r.serie[0],f=r.serie[7],dif=f-h;
       var cls=Math.abs(dif)<1?'':(dif>0?'sobe':'desce');
-      var txt=Math.abs(dif)<1?'Sem variação relevante':(dif>0?'▲ Aumento de ':'▼ Redução de ')+brl.format(Math.abs(dif))+' por ano';
+      var txt=Math.abs(dif)<1?'Sem variação relevante':(dif>0?'▲ Aumento de ':'▼ Redução de ')+fmt(Math.abs(dif))+porPer();
       return '<div class="sim-card'+(k===melhor?' melhor':'')+'">'+(k===melhor?'<span class="sim-selo">Menor carga em 2033</span>':'')+
         '<h4>'+r.nome+'</h4><div class="sub">'+r.sub+'</div>'+
-        '<div class="sim-linhas"><div><small>Hoje (2026)</small><strong>'+brl.format(h)+'</strong><em>'+pct(h/d.R)+' do faturamento</em></div>'+
-        '<div><small>Com a reforma (2033)</small><strong>'+brl.format(f)+'</strong><em>'+pct(f/d.R)+' do faturamento</em></div></div>'+
+        '<div class="sim-linhas"><div><small>Hoje (2026)</small><strong>'+fmt(h)+'</strong><em>'+pct(h/d.R)+' do faturamento</em></div>'+
+        '<div><small>Com a reforma (2033)</small><strong>'+fmt(f)+'</strong><em>'+pct(f/d.R)+' do faturamento</em></div></div>'+
         '<div class="sim-var '+cls+'">'+txt+'</div></div>';
     }).join('');
     return melhor;
@@ -1342,13 +1362,13 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     for(var i=0;i<=4;i++){
       var v=lo+(hi-lo)*i/4,yy=y(v);
       g+='<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+yy+'" y2="'+yy+'" stroke="#D6DCE5" stroke-width="1"/>'+
-         '<text x="'+(m.l-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#5A6576">'+(v>=1e6?(v/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi':Math.round(v/1e3)+' mil')+'</text>';
+         '<text x="'+(m.l-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#5A6576">'+(function(t){return t>=1e6?(t/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi':(t>=1e3?Math.round(t/1e3)+' mil':Math.round(t).toLocaleString('pt-BR'))})(v/div())+'</text>';
     }
     ANOS.forEach(function(a,i){g+='<text x="'+x(i)+'" y="'+(H-8)+'" text-anchor="middle" font-size="11" fill="#5A6576">'+a+'</text>'});
     keys.forEach(function(k){
       var pts=d.res[k].serie.map(function(v,i){return x(i)+','+y(v)}).join(' ');
       g+='<polyline points="'+pts+'" fill="none" stroke="'+CORES[k]+'" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
-      d.res[k].serie.forEach(function(v,i){g+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3.5" fill="'+CORES[k]+'"><title>'+d.res[k].nome+' '+ANOS[i]+': '+brl.format(v)+'</title></circle>'});
+      d.res[k].serie.forEach(function(v,i){g+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3.5" fill="'+CORES[k]+'"><title>'+d.res[k].nome+' '+ANOS[i]+': '+fmt(v)+porPer()+'</title></circle>'});
     });
     $('sim-grafico').innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Gráfico da carga tributária anual por regime de 2026 a 2033">'+g+'</svg>';
     $('sim-legenda').innerHTML=keys.map(function(k){return '<span><i style="background:'+CORES[k]+'"></i>'+d.res[k].nome+'</span>'}).join('');
@@ -1359,7 +1379,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     var max=Math.max.apply(null,keys.map(function(k){return d.res[k].cred}))||1;
     $('sim-credito').innerHTML=keys.map(function(k){
       var r=d.res[k];
-      return '<div class="sim-barra"><span>'+r.nome+'</span><div><b style="width:'+(r.cred/max*100)+'%"></b></div><span>'+brl.format(r.cred)+'/ano</span></div>';
+      return '<div class="sim-barra"><span>'+r.nome+'</span><div><b style="width:'+(r.cred/max*100)+'%"></b></div><span>'+fmt(r.cred)+(periodo()==='mensal'?'/mês':'/ano')+'</span></div>';
     }).join('');
   }
 
@@ -1367,7 +1387,7 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     var d=calcular();
     if(!d){$('sim-cards').innerHTML='<div class="sim-card"><h4>Informe o faturamento anual</h4><div class="sub">Os resultados aparecem aqui.</div></div>';return}
     var melhor=cards(d);grafico(d);creditos(d);
-    var msg='Olá! Fiz a simulação da Reforma Tributária no site.\nAtividade: '+d.cfg.nome+'\nFaturamento anual: '+brl.format(d.R)+
+    var msg='Olá! Fiz a simulação da Reforma Tributária no site.\nAtividade: '+d.cfg.nome+'\nFaturamento '+(periodo()==='mensal'?'mensal: ':'anual: ')+fmt(d.R)+
       (melhor?'\nMenor carga estimada em 2033: '+d.res[melhor].nome:'')+'\nGostaria de uma análise detalhada.';
     $('sim-cta').href='https://wa.me/5581999180023?text='+encodeURIComponent(msg);
   }
@@ -1376,6 +1396,18 @@ footer ul{list-style:none;padding:0;display:grid;gap:.4rem}
     $(id).addEventListener('input',function(){
       var n=this.value.replace(/\D/g,'');
       this.value=n?Number(n).toLocaleString('pt-BR'):'';
+    });
+  });
+  document.querySelectorAll('input[name="s-periodo"]').forEach(function(r){
+    r.addEventListener('change',function(){
+      var mensal=this.value==='mensal';
+      ['s-fat','s-folha'].forEach(function(id){
+        var n=moeda(id); if(!n) return;
+        var v=mensal?Math.round(n/12):n*12;
+        $(id).value=v.toLocaleString('pt-BR');
+      });
+      document.querySelectorAll('#simulador .s-per').forEach(function(e){e.textContent=mensal?'mensal':'anual'});
+      document.querySelectorAll('#simulador .s-per-cap').forEach(function(e){e.textContent=mensal?'Valores mensais':'Valores anuais'});
     });
   });
   $('sim-form').addEventListener('input',atualizar);
